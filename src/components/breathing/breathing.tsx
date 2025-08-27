@@ -19,7 +19,7 @@ export default function Breathing() {
 
       // Start breath-in phase
       setCurrentPhase("in");
-      inner.style.transition = `all ${inTime}s ease-in-out`;
+      inner.style.transition = `all ${inTime}s`;
       inner.style.width = "100%";
       inner.style.height = "100%";
 
@@ -27,7 +27,7 @@ export default function Breathing() {
       setTimeout(() => {
         if (inner && intervalRef.current !== null) {
           setCurrentPhase("out");
-          inner.style.transition = `all ${outTime}s ease-in-out`;
+          inner.style.transition = `all ${outTime}s`;
           inner.style.width = "10%";
           inner.style.height = "10%";
         }
@@ -170,9 +170,9 @@ export default function Breathing() {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "20px", // space between inputs container and button
-          marginTop: "20px", // optional spacing
-          flexWrap: "wrap", // wraps if screen is too small
+          gap: "20px",
+          marginTop: "20px",
+          flexWrap: "wrap",
         }}
       >
         <div
@@ -183,20 +183,22 @@ export default function Breathing() {
           }}
         >
           <label style={labelStyle}>
-            In Time
+            In Time: {inTime}
             <input
               style={inputStyle}
-              type="number"
+              type="range"
+              min="1" max="10"
               value={inTime}
               onChange={(e) => setInTime(Number(e.target.value))}
             />
           </label>
 
           <label style={labelStyle}>
-            Out Time
+            Out Time: {outTime}
             <input
               style={inputStyle}
-              type="number"
+              type="range"
+              min="1" max="10"
               value={outTime}
               onChange={(e) => setOutTime(Number(e.target.value))}
             />
