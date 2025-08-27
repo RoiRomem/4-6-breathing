@@ -1,7 +1,7 @@
 #breath {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 97vh;
   width: 100vw;
-  gap: 20px;
+  gap: 10px;
 }

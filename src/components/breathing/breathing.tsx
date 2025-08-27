@@ -91,9 +91,7 @@ export default function Breathing() {
     flexDirection: "column",
     alignItems: "center",
     gap: "20px",
-    padding: "40px",
-
-    minHeight: "100vh",
+    minHeight: "45vh",
     fontFamily: "system-ui, sans-serif",
   };
 
@@ -119,7 +117,6 @@ export default function Breathing() {
     justifyContent: "center",
     position: "relative",
   };
-
   const innerStyle: React.CSSProperties = {
     width: "10%",
     height: "10%",
@@ -148,26 +145,16 @@ export default function Breathing() {
     display: "block",
     marginBottom: "4px",
     fontWeight: "bold",
+    paddingRight: "10%",
   };
 
   const inputStyle: React.CSSProperties = {
     marginBottom: "12px",
     padding: "4px",
-  }
+  };
 
   return (
     <div style={containerStyle}>
-      <button
-        style={buttonStyle}
-        onClick={toggleBreathing}
-        onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.9")}
-        onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-        onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.98)")}
-        onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
-      >
-        {isRunning ? "Stop" : "Start"} Breathing
-      </button>
-
       <div style={outlineStyle}>
         <div ref={innerRef} style={innerStyle} />
       </div>
@@ -179,26 +166,53 @@ export default function Breathing() {
         <p style={instructionStyle}>{getInstructionText()}</p>
       </div>
 
-      <div>
-        <label style={labelStyle}>
-          In Time
-          <input
-          style={inputStyle}
-            type="number"
-            value={inTime}
-            onChange={(e) => setInTime(Number(e.target.value))}
-          />
-        </label>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "20px", // space between inputs container and button
+          marginTop: "20px", // optional spacing
+          flexWrap: "wrap", // wraps if screen is too small
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            gap: "10px", // space between inputs
+            alignItems: "center",
+          }}
+        >
+          <label style={labelStyle}>
+            In Time
+            <input
+              style={inputStyle}
+              type="number"
+              value={inTime}
+              onChange={(e) => setInTime(Number(e.target.value))}
+            />
+          </label>
 
-        <label style={labelStyle}>
-          Out Time
-          <input
-            style={inputStyle}
-            type="number"
-            value={outTime}
-            onChange={(e) => setOutTime(Number(e.target.value))}
-          />
-        </label>
+          <label style={labelStyle}>
+            Out Time
+            <input
+              style={inputStyle}
+              type="number"
+              value={outTime}
+              onChange={(e) => setOutTime(Number(e.target.value))}
+            />
+          </label>
+        </div>
+
+        <button
+          style={buttonStyle}
+          onClick={toggleBreathing}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.9")}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.98)")}
+          onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
+        >
+          {isRunning ? "Stop" : "Start"} Breathing
+        </button>
       </div>
     </div>
   );
