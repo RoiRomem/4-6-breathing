@@ -12,6 +12,7 @@ body {
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  overflow: hidden; /* kill scroll */
 }
 
 #navbar {
@@ -24,120 +25,31 @@ body {
 }
 
 #breath {
+  margin-top: 5%;
   flex: 1;
-  display: grid;
-  place-items: center;
-  padding-top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  gap: 10px;
+  gap: 20px;
+  position: relative;
 }
 
-/* Footer at bottom */
 footer {
-  padding-top: 13.5%;
-  padding-left: 0.5%;
+  position: absolute;
   font-family: system-ui, sans-serif;
   flex-shrink: 0;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-/* Buttons */
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  html,
-  body {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-#logo {
-  font-size: 2vh;
-  padding-left: 0.5%;
-  margin-top: 0.14%;
-}
-
-.neon-sign {
+  z-index: 2;
   position: relative;
-  color: #fff;
-  font-size: 6rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0066ff,
-    0 0 70px #0066ff, 0 0 80px #0066ff, 0 0 100px #0066ff, 0 0 150px #0066ff;
-  animation: flicker 3s infinite alternate;
+  padding: 0.5rem;
+  margin-top: auto;
+  bottom: 56%;
+  text-align: center;
 }
 
-/* Neon tube effect */
-.neon-sign::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 10px;
-  padding: 0.4em 0.6em;
-  background: #ff00de;
+.lowZ {
   z-index: -1;
-  opacity: 0.1;
-  filter: blur(15px);
-}
-
-/* Flicker animation */
-@keyframes flicker {
-  0%,
-  19.999%,
-  22%,
-  62.999%,
-  64%,
-  64.999%,
-  70%,
-  100% {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0066ff,
-      0 0 70px #0066ff, 0 0 80px #0066ff, 0 0 100px #0066ff, 0 0 150px #0066ff;
-    opacity: 1;
-  }
-  20%,
-  21.999%,
-  63%,
-  63.999%,
-  65%,
-  69.999% {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0066ff,
-      0 0 35px #0066ff, 0 0 40px #0066ff, 0 0 50px #0066ff, 0 0 75px #0066ff;
-    opacity: 0.8;
-  }
+  width: 100%;
+  filter: blur(3px);
 }
