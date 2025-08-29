@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <nav id="navbar">
-        <span id="logo">Mindfulness</span>
+        <span id="logo" className='neon-sign'>Mindfulness</span>
       </nav>
       <main id="breath">
         <Breathing />
