@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { playTone } from '../../helper/Audio';
 
 export default function Breathing() {
   const innerRef = useRef<HTMLDivElement | null>(null);
@@ -22,6 +23,7 @@ export default function Breathing() {
       inner.style.transition = `all ${inTime}s`;
       inner.style.width = "100%";
       inner.style.height = "100%";
+      playTone(440, inTime * 1000);
 
       // After breath-in completes, start breath-out
       setTimeout(() => {
@@ -30,6 +32,7 @@ export default function Breathing() {
           inner.style.transition = `all ${outTime}s`;
           inner.style.width = "10%";
           inner.style.height = "10%";
+          playTone(640, outTime * 1000);
         }
       }, inTime * 1000);
     };
